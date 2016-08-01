@@ -1,0 +1,29 @@
+#!/bin/bash
+
+set -e
+
+export DEBIAN_FRONTEND=noninteractive
+export DEBCONF_NONINTERACTIVE_SEEN=true
+
+apt-get install --yes --no-install-recommends \
+    ev3-config \
+    ev3-systemd \
+    firmware-ev3 \
+    linux-image-ev3dev-ev3 \
+    u-boot-tools \
+    zram-init
+
+# make sure serial-getty@.service does not try to use the serial ports because
+# we use them for other things
+systemctl mask serial-getty@ttyS0.service
+systemctl mask serial-getty@ttyS1.service
+systemctl mask serial-getty@ttyS2.service
+systemctl mask serial-getty@ttySU0.service
+systemctl mask serial-getty@ttySU1.service
+
+# enable zram swap file
+systemctl enable zram_swap.service
+
+# Fix file permissions on private ssh host keys. (git does not preserve
+# permissions other than the executable bin)
+chmod 600 /etc/ssh/ssh_host_*_key

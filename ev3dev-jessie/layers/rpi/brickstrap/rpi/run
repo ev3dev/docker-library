@@ -1,0 +1,16 @@
+#!/bin/bash
+
+set -e
+
+export DEBIAN_FRONTEND=noninteractive
+export DEBCONF_NONINTERACTIVE_SEEN=true
+
+# need a place to put the kernel
+mkdir -p /boot/flash
+
+apt-get install --yes --no-install-recommends \
+    linux-image-ev3dev-rpi
+
+# Copy device tree for Model B+ - only Model B is installed by flash-kernel
+# and this image needs to support both models.
+cp /usr/lib/linux-image-*[^.old]/bcm2708-rpi-b-plus.dtb /boot/flash/

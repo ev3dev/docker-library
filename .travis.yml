@@ -1,0 +1,39 @@
+language: bash
+env:
+  matrix:
+  - DIST=jessie HW_PLATFORM=bone
+  - DIST=jessie HW_PLATFORM=ev3
+  - DIST=jessie HW_PLATFORM=rpi
+  - DIST=jessie HW_PLATFORM=rpi2
+  global:
+  - DEPLOY_HOST=ev3dev-docker-docker.bintray.io
+  - secure: QJBsw/R9AhcA1rVCg+vq5nL4bPNfGKnUfdk9h4ze/66WEp0ncCRacWzp4/9czO2VGutCQ8Wk+uponNkZ0Io2Mjicw2gqERKJorT/J1kGmK/RteUfobIPBFSbBeGZraIaIUVs1ICLqt5Tabiiy1xJvKiL9sdH8gKQnEbt/nGvNaDdDtDOq5qhHOmzye6+KiYAErZxFiA/SHduExlZ2YouEe3d4i38yHFuJjFSdwm2TNq+nYwD0nmLDwSgPjgPWM7qSHIkLAsXpIVblSI2vVr7IawiXuUVinUvIqKakfPH3/08oLMLDPXU2PEdj6iHui8DPEG8W+L6yskHIIC3sEVPCeqJrcGVt8EQzbn2AjpHau/5/Q8nzWP6NC94phFJqRf3XzEjeUkhIY81Ll3Uty8tZdvgzUmxe+I5b04ffuIj40bpYW063Qid+hhTeQl2Y0unNIcTDT8+cBYO4gDvdiGvgJFrzC+3a+LbBq9RJNLMHOOcuJWaUp5e+iL9pqXEn5niUSKJ5RfsnO7WhWaU9xcoki5isUvIt2rznzg+T1OEgg8HtvuCKLH2VzBBPpgzFICZsMKlPPaCFB2KodF36S9qZBm0xf4iusVw/oKvRnIwcCTh41TrMxlxoSbxbXTuiw4/IkDKRiYHyAEGecxYHLHXV+dSGqT+Y86ip+w9ah/sQXc=
+  - secure: deyLb9RiZGOY9mIl+MWxMRdNPe+lESlpXEznPGcYuqexJsgZW4gBVzuOyxYuqWpyUDXd+fF7h1PrYs24BMdaNznVsWfF76KqrE9RbkoYpcYldYcn8Gpx8vSqmHiaZWepwg06ipSiSLWQV+mLhSSl/zpcYK1bOJimTKs/oYiNxfCNQHhnEGii7HTKDvC+NCvo3MWn/G/hq8i2MHXjpsdYkAz4dSEMCjnrcd2KlewiYVz7/LeCXLeQnSExDWYiGUs37HxYZuaKW01pSexpiqR6jsa5J1lszRdBbqoMI74tceN/kVjm77S69su3t4AoyX4FExihHXfuIgaPYAcnaoxwoR9ZDNuDKRMUBUO/RR5XfyBZujgCgEz/g0tKyDMfK78Lyt6eY6dglSiPtlmH17qMYF36bhZklB5OVO1z8HVQqRKOYY056boPa6m0LwUiPklnaxIlLm5w09tHVTpfxijUklpCfJWFOLmUDTt/iGXw1PcFi2Qh47GJ31ljLfXA2HDfvnLuHfGCtfkSEWoQ45H8fPnTJoz3uLvM7BJSaDmkPlJe2qEiFKrGXvk/oHCZu6o6n8RfO6ehzwfMRVLijiSQsVPaqtUwxOnO83ENzwbzCFxPnAbFnFrUFDdr/Nlthfd0iTe6VtLeKSR/aBTV6OH2VIqDcwAfW1meXiOFZ/CeMNk=
+sudo: required
+dist: trusty
+services: docker
+install:
+- sudo apt-get update
+- sudo apt-get install --yes qemu-user-static
+before_script:
+- docker --version
+script:
+- docker build -t ev3dev-$DIST-$HW_PLATFORM-base
+  -f ev3dev-$DIST/$HW_PLATFORM-base.dockerfile
+  ev3dev-$DIST
+- docker build -t ev3dev-$DIST-$HW_PLATFORM-generic
+  -f ev3dev-$DIST/$HW_PLATFORM-generic.dockerfile
+  ev3dev-$DIST
+after_success:
+- if [ "$TRAVIS_BRANCH" == "ev3dev-$DIST" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
+    export TAG=$(date --iso-8601);
+    docker login -u dlech -p $API_KEY -e $EMAIL $DEPLOY_HOST;
+    docker tag ev3dev-$DIST-$HW_PLATFORM-base $DEPLOY_HOST/ev3dev-$DIST-$HW_PLATFORM-base;
+    docker push $DEPLOY_HOST/ev3dev-$DIST-$HW_PLATFORM-base;
+    docker tag ev3dev-$DIST-$HW_PLATFORM-base $DEPLOY_HOST/ev3dev-$DIST-$HW_PLATFORM-base:$TAG;
+    docker push $DEPLOY_HOST/ev3dev-$DIST-$HW_PLATFORM-base:$TAG;
+    docker tag ev3dev-$DIST-$HW_PLATFORM-generic $DEPLOY_HOST/ev3dev-$DIST-$HW_PLATFORM-generic;
+    docker push $DEPLOY_HOST/ev3dev-$DIST-$HW_PLATFORM-generic;
+    docker tag ev3dev-$DIST-$HW_PLATFORM-generic $DEPLOY_HOST/ev3dev-$DIST-$HW_PLATFORM-generic:$TAG;
+    docker push $DEPLOY_HOST/ev3dev-$DIST-$HW_PLATFORM-generic:$TAG;
+  fi
