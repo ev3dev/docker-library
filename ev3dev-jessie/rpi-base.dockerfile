@@ -1,6 +1,6 @@
 # Minimal base image for ev3dev on Raspberry Pi hardware
 
-FROM ev3dev-docker-docker.bintray.io/raspbian-jessie-armhf
+FROM ev3dev/raspbian-jessie-armhf-qemu-minbase
 COPY layers/raspbian/ /
 RUN /brickstrap/raspbian/run
 COPY layers/base/ /

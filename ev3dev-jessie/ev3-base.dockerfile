@@ -1,6 +1,6 @@
 # Minimal base image for ev3dev on LEGO MINDSTORMS EV3 hardware
 
-FROM ev3dev-docker-docker.bintray.io/debian-jessie-armel
+FROM ev3dev/debian-jessie-armel-qemu-minbase
 COPY layers/debian/ /
 COPY layers/base/ /
 RUN /brickstrap/base/run

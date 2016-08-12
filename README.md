@@ -27,11 +27,11 @@ Using the Images
 * First, you will need to [install Docker Engine] on your system.
 * Then grab an ev3dev image:
 
-        docker pull ev3dev-docker-docker.bintray.io/ev3dev-jessie-ev3-base
+        docker pull ev3dev/ev3dev-jessie-ev3-base
 
 * Make a shorter name for the image:
 
-        docker tag ev3dev-docker-docker.bintray.io/ev3dev-jessie-ev3-base ev3dev-jessie-ev3-base
+        docker tag ev3dev/ev3dev-jessie-ev3-base ev3dev-jessie-ev3-base
 
 * And start a shell as the `robot` user in the image:
 
@@ -47,4 +47,4 @@ Tips
 
 * You can use a specific version of an image by adding a "tag" to the name:
 
-        ev3dev-docker-docker.bintray.io/ev3dev-jessie-ev3-base:2016-08-01
+        ev3dev/ev3dev-jessie-ev3-base:2016-08-11

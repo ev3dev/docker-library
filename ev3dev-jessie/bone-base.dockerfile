@@ -1,6 +1,6 @@
 # Minimal base image for ev3dev on BeagleBone hardware
 
-FROM ev3dev-docker-docker.bintray.io/debian-jessie-armhf
+FROM ev3dev/debian-jessie-armhf-qemu-minbase
 COPY layers/debian/ /
 COPY layers/base/ /
 RUN /brickstrap/base/run
