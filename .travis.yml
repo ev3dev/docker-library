@@ -26,13 +26,12 @@ script:
   -f ev3dev-$DIST/$HW_PLATFORM-generic.dockerfile
   ev3dev-$DIST
 after_success:
-- if [ "$TRAVIS_BRANCH" == "ev3dev-$DIST" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
-    export TAG=$(date --iso-8601);
+- if [ -n "$TRAVIS_TAG" ]; then
     docker login -u $USER -p $PASSWORD;
     docker push ev3dev/ev3dev-$DIST-$HW_PLATFORM-base;
-    docker tag ev3dev-$DIST-$HW_PLATFORM-base ev3dev/ev3dev-$DIST-$HW_PLATFORM-base:$TAG;
-    docker push ev3dev/ev3dev-$DIST-$HW_PLATFORM-base:$TAG;
+    docker tag ev3dev/ev3dev-$DIST-$HW_PLATFORM-base ev3dev/ev3dev-$DIST-$HW_PLATFORM-base:$TRAVIS_TAG;
+    docker push ev3dev/ev3dev-$DIST-$HW_PLATFORM-base:$TRAVIS_TAG;
     docker push ev3dev/ev3dev-$DIST-$HW_PLATFORM-generic;
-    docker tag ev3dev-$DIST-$HW_PLATFORM-generic ev3dev/ev3dev-$DIST-$HW_PLATFORM-generic:$TAG;
-    docker push ev3dev/ev3dev-$DIST-$HW_PLATFORM-generic:$TAG;
+    docker tag ev3dev/ev3dev-$DIST-$HW_PLATFORM-generic ev3dev/ev3dev-$DIST-$HW_PLATFORM-generic:$TRAVIS_TAG;
+    docker push ev3dev/ev3dev-$DIST-$HW_PLATFORM-generic:$TRAVIS_TAG;
   fi
