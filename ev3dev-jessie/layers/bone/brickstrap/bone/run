@@ -19,7 +19,7 @@ apt-get install --yes --no-install-recommends \
 
 mlo_url=https://rcn-ee.com/repos/bootloader/am335x_evm/MLO-am335x_evm-v2016.03-r8
 uboot_url=https://rcn-ee.com/repos/bootloader/am335x_evm/u-boot-am335x_evm-v2016.03-r8.img
-dest_dir=/brickstrap/beaglebone-boot
+dest_dir=/brickstrap/_beagle-boot
 
 mkdir -p $dest_dir
 
@@ -28,3 +28,5 @@ echo "ad9a30c6cc33fd38947b8076db7707a3 $dest_dir/MLO" | md5sum --check -
 
 wget $uboot_url -O $dest_dir/u-boot.img
 echo "7560b15e06e9906c8b10c025c7fd9d4d $dest_dir/u-boot.img" | md5sum --check -
+
+echo './etc/flash-kernel/machine' >> /brickstrap/_tar-exclude

@@ -15,3 +15,6 @@ apt-get install --yes --no-install-recommends \
 # Copy device tree for RPi 3 - only RPi 2 is installed by flash-kernel
 # and this image needs to support both models.
 cp /usr/lib/linux-image-*[^.old]/bcm2710-rpi-3-b.dtb /boot/flash/
+
+echo './etc/flash-kernel/db'        >> /brickstrap/_tar-exclude
+echo './etc/flash-kernel/machine'   >> /brickstrap/_tar-exclude
