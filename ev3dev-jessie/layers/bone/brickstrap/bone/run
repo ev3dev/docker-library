@@ -11,6 +11,10 @@ apt-get install --yes --no-install-recommends \
     lms2012-compat \
     u-boot-tools
 
+# Fix file permissions on private ssh host keys. (git does not preserve
+# permissions other than the executable bin)
+chmod 600 /etc/ssh/ssh_host_*_key
+
 # Download BeagleBone Bootloader
 #
 # To find out the latest stable version of the files, run:
