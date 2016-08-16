@@ -49,6 +49,7 @@ apt-get install --yes --force-yes --no-install-recommends \
     isc-dhcp-client \
     kmod \
     less \
+    libgrx-3.0-plugin-linuxfb \
     libnss-mdns \
     libnss-myhostname \
     libpam-systemd \
