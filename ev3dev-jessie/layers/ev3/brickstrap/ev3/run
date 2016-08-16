@@ -25,7 +25,7 @@ systemctl mask serial-getty@ttySU1.service
 systemctl enable zram_swap.service
 
 # Fix file permissions on private ssh host keys. (git does not preserve
-# permissions other than the executable bin)
+# permissions other than the executable bit)
 chmod 600 /etc/ssh/ssh_host_*_key
 
 echo './etc/flash-kernel/db'        >> /brickstrap/_tar-exclude
