@@ -31,7 +31,8 @@ apt-get install --yes --no-install-recommends \
     ruby \
     samba \
     smbnetfs \
-    sshfs
+    sshfs \
+    ttf-mscorefonts-installer
 
 # prevent openrobertalab from running
 systemctl mask openrobertalab.service
