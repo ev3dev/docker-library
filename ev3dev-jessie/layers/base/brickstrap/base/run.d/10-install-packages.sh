@@ -34,6 +34,7 @@ apt-get install --yes --force-yes --no-install-recommends \
     ev3dev-rules \
     ev3dev-tools \
     evtest \
+    fake-hwclock \
     fbcat \
     fbset \
     firmware-atheros \
