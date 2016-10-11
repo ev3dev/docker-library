@@ -22,6 +22,7 @@ script:
   -f ev3dev-$DIST/$HW_PLATFORM-base.dockerfile
   ev3dev-$DIST
 - docker build
+  --build-arg BRICKSTRAP_IMAGE_NAME=ev3dev-$DIST-$HW_PLATFORM-generic-$TRAVIS_TAG
   -t ev3dev/ev3dev-$DIST-$HW_PLATFORM-generic
   -f ev3dev-$DIST/$HW_PLATFORM-generic.dockerfile
   ev3dev-$DIST

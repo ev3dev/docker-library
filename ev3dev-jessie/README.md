@@ -37,3 +37,12 @@ Each layer conforms to the following rules:
         the docker image.
 
 * The `brickstrap/<layer>/run` script is run using the dockerfile `RUN` command.
+
+The dockerfile that will be used to actually create an image that will be released
+should contain the following:
+
+    ARG BRICKSTRAP_IMAGE_NAME
+    ENV BRICKSTRAP_IMAGE_NAME ${BRICKSTRAP_IMAGE_NAME}
+    RUN echo "$BRICKSTRAP_IMAGE_NAME" > /etc/ev3dev-release
+
+This allows a unique image name to be passed each time the image is built.
