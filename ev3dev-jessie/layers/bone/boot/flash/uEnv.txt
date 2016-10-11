@@ -1,2 +1,5 @@
 # Enable device tree for FatcatLab's EVB
 cape=evb
+
+# kernel boot arguments
+cmdline=splash console=tty1
