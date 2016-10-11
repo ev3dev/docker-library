@@ -23,16 +23,18 @@ Each layer conforms to the following rules:
 * The layer should contain a `brickstrap/<layer>` subdirectory where `<layer`>
     is the name of the layer (same name as the parent directory).
 
-    The `brickstrap/<layer>` directory can contain the following components.
+    The `brickstrap` directory can contain the following components.
 
-    * `run`: An executable file that performs the task of setting up the layer.
+    * `<layer>/run`: An executable file that performs the task of setting up the layer.
         This usually contains an `apt-get install` command and any other tweaks
         needed. This script should be kept to a minimum. It is preferred that
         as much configuration as possible is done by the packages themselves
         rather than manually here.
-    * `tar-exclude`: A text file containing a list of files that should be
+    * `_tar-exclude`: A text file containing a list of files that should be
         excluded from a SD card image file created from this docker image.
-    * `tar-only`: A directory containing a file structure that will be overlaid
+        This file is usually appended from the `run` script, otherwise it would
+        be overwritten by new layers.
+    * `_tar-only`: A directory containing a file structure that will be overlaid
         on the docker image root file system when creating an SD card image from
         the docker image.
 
