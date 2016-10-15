@@ -7,7 +7,6 @@ export DEBCONF_NONINTERACTIVE_SEEN=true
 
 apt-get install --yes --no-install-recommends \
     evb-systemd \
-    firmware-bone \
     linux-image-ev3dev-bb.org \
     lms2012-compat \
     u-boot-tools
