@@ -14,8 +14,10 @@ case "$1" in
         update-rc.d -f firstboot remove
 
         # expand the root file system
-        # Note, this will break if using an initramfs
-        parted --script /dev/mmcblk0 unit % resizepart 2 100%
+        parted --script /dev/mmcblk0 unit % resizepart 2 100% || \
+            parted /dev/mmcblk0 unit % resizepart 2 Yes 100%
+        # line above is a hack to work around a parted bug.
+        # http://unix.stackexchange.com/a/202872/91467
         partprobe
         resize2fs /dev/mmcblk0p2
         ;;
