@@ -25,6 +25,7 @@ apt-get install --yes --no-install-recommends \
     python3 \
     python3-ev3dev \
     python3-evdev \
+    python3-gi \
     python3-libpixyusb \
     python3-pyudev \
     python3-setuptools \
