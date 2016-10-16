@@ -6,6 +6,7 @@ export DEBIAN_FRONTEND=noninteractive
 export DEBCONF_NONINTERACTIVE_SEEN=true
 
 apt-get install --yes --no-install-recommends \
+    fortune \
     gawk \
     git \
     guile-1.8 \
