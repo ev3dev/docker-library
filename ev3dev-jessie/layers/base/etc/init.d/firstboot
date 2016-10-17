@@ -15,7 +15,7 @@ case "$1" in
 
         # expand the root file system
         parted --script /dev/mmcblk0 unit % resizepart 2 100% || \
-            parted /dev/mmcblk0 unit % resizepart 2 Yes 100%
+            echo 'unit % resizepart 2 Yes 100%' | parted ---pretend-input-tty /dev/mmcblk0
         # line above is a hack to work around a parted bug.
         # http://unix.stackexchange.com/a/202872/91467
         partprobe
