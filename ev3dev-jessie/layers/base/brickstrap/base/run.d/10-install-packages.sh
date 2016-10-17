@@ -6,7 +6,7 @@ export DEBIAN_FRONTEND=noninteractive
 export DEBCONF_NONINTERACTIVE_SEEN=true
 
 # Get the ev3dev archive apt key
-apt-key adv --keyserver pgp.mit.edu --recv-keys 2FFD16E02B210565
+apt-key adv --keyserver pgp.mit.edu --recv-keys D57D95AF93178A7C
 
 # TODO: It would be better to not have the base-files version number hard-coded
 # here. However, it is needed because if debian does a point release, we will
