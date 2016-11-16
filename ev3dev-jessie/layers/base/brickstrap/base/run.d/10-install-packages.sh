@@ -71,3 +71,6 @@ apt-get install --yes --force-yes --no-install-recommends \
     vim \
     wget \
     wpasupplicant
+
+# work around https://github.com/ev3dev/brickstrap/issues/63
+chmod u+s /bin/ping
