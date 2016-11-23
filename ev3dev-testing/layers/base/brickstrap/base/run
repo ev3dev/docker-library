@@ -1,0 +1,19 @@
+#!/bin/bash
+
+set -e
+
+script_dir=$(dirname $(readlink -f $0))
+
+echo script_dir=$script_dir
+
+run-parts --regex='[0-9a-zA-z_\-\.]+' --verbose --exit-on-error $script_dir/run.d
+
+# Note: some of these files come from dockers mkimage.sh
+echo './etc/apt.conf.d/01Autoremove*'   >> /brickstrap/_tar-exclude
+echo './etc/apt.conf.d/70debconf'       >> /brickstrap/_tar-exclude
+echo './etc/apt.conf.d/docker-*'        >> /brickstrap/_tar-exclude
+echo './etc/hostname'                   >> /brickstrap/_tar-exclude
+echo './etc/hosts'                      >> /brickstrap/_tar-exclude
+echo './etc/kernel-img.conf'            >> /brickstrap/_tar-exclude
+echo './usr/bin/qemu-arm-static'        >> /brickstrap/_tar-exclude
+echo './usr/sbin/policy-rc.d'           >> /brickstrap/_tar-exclude

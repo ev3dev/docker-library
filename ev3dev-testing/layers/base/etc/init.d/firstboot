@@ -1,0 +1,33 @@
+#!/bin/sh -e
+
+### BEGIN INIT INFO
+# Provides: firstboot
+# Required-Start: $local_fs
+# Required-Stop:
+# Default-Start: S
+# Default-Stop:
+# Short-Description: ev3dev first boot tasks
+### END INIT INFO
+
+case "$1" in
+    start)
+        update-rc.d -f firstboot remove
+
+        # expand the root file system
+        parted --script /dev/mmcblk0 unit % resizepart 2 100% || \
+            echo 'unit % resizepart 2 Yes 100%' | parted ---pretend-input-tty /dev/mmcblk0
+        # line above is a hack to work around a parted bug.
+        # http://unix.stackexchange.com/a/202872/91467
+        partprobe
+        resize2fs /dev/mmcblk0p2
+        ;;
+    stop|restart|reload|force-reload|status)
+        :
+        ;;
+    *)
+        echo "Usage: /etc/init.d/firstboot start"
+        exit 1
+        ;;
+esac
+
+exit 0

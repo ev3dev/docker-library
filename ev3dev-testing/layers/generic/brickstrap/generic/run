@@ -1,0 +1,50 @@
+#!/bin/bash
+
+set -e
+
+export DEBIAN_FRONTEND=noninteractive
+export DEBCONF_NONINTERACTIVE_SEEN=true
+
+apt-get install --yes --no-install-recommends \
+    fortune \
+    fortunes-min \
+    gawk \
+    git \
+    guile-1.8 \
+    lua5.2 \
+    nfs-common \
+    nodejs \
+    nodejs-legacy \
+    npm \
+    openrobertalab \
+    python \
+    python-evdev \
+    python-gobject \
+    python-pyudev \
+    python-setuptools \
+    python-smbus \
+    python3 \
+    python3-ev3dev \
+    python3-evdev \
+    python3-gi \
+    python3-libpixyusb \
+    python3-pyudev \
+    python3-setuptools \
+    python3-smbus \
+    ruby \
+    samba \
+    smbnetfs \
+    sshfs
+
+# prevent openrobertalab from running
+systemctl mask openrobertalab.service
+
+# disable nfs from running by default since most won't use it
+systemctl disable nfs-common.service
+systemctl disable rpcbind.service
+
+# disable smbd from running by default. Want to leave nmbd on though.
+systemctl disable smbd.service
+# we really don't want this running - it causes a long timeout on boot
+systemctl mask samba-ad-dc.service
+

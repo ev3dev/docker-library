@@ -1,0 +1,14 @@
+#!/bin/bash
+
+set -e
+
+export DEBIAN_FRONTEND=noninteractive
+export DEBCONF_NONINTERACTIVE_SEEN=true
+
+# These files are incorrectly marked as required in the raspbian repository.
+# see https://bugs.launchpad.net/raspbian/+bug/1541204
+apt-get purge --yes \
+    gcc-4.6-base \
+    gcc-4.7-base \
+    mountall \
+    xz-utils
