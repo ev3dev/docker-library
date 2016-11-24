@@ -22,10 +22,10 @@ apt-key adv --keyserver pgp.mit.edu --recv-keys D57D95AF93178A7C
 # here. However, it is needed because if debian does a point release, we will
 # actually be downgrading the base-files package.
 
-apt-get install --yes --force-yes --no-install-recommends \
+apt-get install --yes --allow-downgrades --no-install-recommends \
     alsa-utils \
     avahi-daemon \
-    base-files=8+deb8u5ev3dev1 \
+    base-files \
     beep \
     bluez \
     brickman \
