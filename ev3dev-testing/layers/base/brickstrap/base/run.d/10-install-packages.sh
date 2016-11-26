@@ -13,7 +13,7 @@ apt-get update --yes
 apt-get install --yes --allow-downgrades --no-install-recommends \
     alsa-utils \
     avahi-daemon \
-    base-files \
+    base-files=9.5ev3dev1 \
     beep \
     bluez \
     brickman \
