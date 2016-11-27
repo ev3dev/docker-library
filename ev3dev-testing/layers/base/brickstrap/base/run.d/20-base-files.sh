@@ -6,7 +6,6 @@
 set -e
 
 cp /usr/share/base-files/staff-group-for-usr-local  /etc/staff-group-for-usr-local
-cp /usr/share/base-files/nsswitch.conf              /etc/nsswitch.conf
 cp /usr/share/base-files/dot.profile                /root/.profile
 cp /usr/share/base-files/dot.bashrc                 /root/.bashrc
 cp /usr/share/base-files/profile                    /etc/profile
