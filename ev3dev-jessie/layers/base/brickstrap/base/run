@@ -13,7 +13,6 @@ echo './etc/apt.conf.d/01Autoremove*'   >> /brickstrap/_tar-exclude
 echo './etc/apt.conf.d/70debconf'       >> /brickstrap/_tar-exclude
 echo './etc/apt.conf.d/docker-*'        >> /brickstrap/_tar-exclude
 echo './etc/hostname'                   >> /brickstrap/_tar-exclude
-echo './etc/hosts'                      >> /brickstrap/_tar-exclude
 echo './etc/kernel-img.conf'            >> /brickstrap/_tar-exclude
 echo './usr/bin/qemu-arm-static'        >> /brickstrap/_tar-exclude
 echo './usr/sbin/policy-rc.d'           >> /brickstrap/_tar-exclude
