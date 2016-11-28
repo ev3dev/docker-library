@@ -5,6 +5,11 @@ set -e
 export DEBIAN_FRONTEND=noninteractive
 export DEBCONF_NONINTERACTIVE_SEEN=true
 
+debconf-set-selections << EOF
+locales         locales/locales_to_be_generated         multiselect     en_US.UTF-8 UTF-8
+locales         locales/default_environment_locale      select          en_US.UTF-8
+EOF
+
 # Get the ev3dev archive apt key
 apt-key adv --keyserver pgp.mit.edu --recv-keys D57D95AF93178A7C
 
@@ -54,6 +59,7 @@ apt-get install --yes --force-yes --no-install-recommends \
     libnss-mdns \
     libnss-myhostname \
     libpam-systemd \
+    locales \
     nano \
     net-tools \
     netbase \
