@@ -5,6 +5,12 @@ set -e
 export DEBIAN_FRONTEND=noninteractive
 export DEBCONF_NONINTERACTIVE_SEEN=true
 
+debconf-set-selections << EOF
+locales         locales/locales_to_be_generated         multiselect     en_US.UTF-8 UTF-8
+locales         locales/default_environment_locale      select          en_US.UTF-8
+EOF
+
+
 # TODO: It would be better to not have the base-files version number hard-coded
 # here. However, it is needed because if debian does a point release, we will
 # actually be downgrading the base-files package.
@@ -51,6 +57,7 @@ apt-get install --yes --allow-downgrades --no-install-recommends \
     libnss-mdns \
     libnss-myhostname \
     libpam-systemd \
+    locales \
     nano \
     net-tools \
     netbase \
