@@ -10,9 +10,6 @@ locales         locales/locales_to_be_generated         multiselect     en_US.UT
 locales         locales/default_environment_locale      select          en_US.UTF-8
 EOF
 
-# Get the ev3dev archive apt key
-apt-key adv --keyserver pgp.mit.edu --recv-keys D57D95AF93178A7C
-
 # TODO: It would be better to not have the base-files version number hard-coded
 # here. However, it is needed because if debian does a point release, we will
 # actually be downgrading the base-files package.
