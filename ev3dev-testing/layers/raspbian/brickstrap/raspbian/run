@@ -10,5 +10,7 @@ export DEBCONF_NONINTERACTIVE_SEEN=true
 apt-get purge --yes \
     gcc-4.6-base \
     gcc-4.7-base \
+    gcc-4.8-base \
+    gcc-4.9-base \
     mountall \
     xz-utils
