@@ -29,6 +29,7 @@ apt-get install --yes --no-install-recommends \
     python3-gi \
     python3-libpixyusb \
     python3-pyudev \
+    python3-rpyc \
     python3-setuptools \
     python3-smbus \
     ruby \
