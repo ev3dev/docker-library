@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -e
+
+export DEBIAN_FRONTEND=noninteractive
+export DEBCONF_NONINTERACTIVE_SEEN=true
+
+apt-get update --yes && \
+apt-get install --yes --no-install-recommends \
+    ev3-lms2012-systemd \
+    linux-image-ev3dev-bpo-stretch-ev3-lms2012 \
+    lms2012-compat
