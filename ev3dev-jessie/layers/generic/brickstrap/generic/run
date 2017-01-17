@@ -25,12 +25,15 @@ apt-get install --yes --no-install-recommends \
     python-setuptools \
     python-smbus \
     python3 \
+    python3-bluez \
     python3-ev3dev \
     python3-evdev \
+    python3-gattlib \
     python3-gi \
     python3-libpixyusb \
     python3-pyudev \
     python3-rpyc \
+    python3-serial \
     python3-setuptools \
     python3-smbus \
     ruby \
