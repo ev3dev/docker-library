@@ -1,3 +1,5 @@
+# This file is replaced when building images with brickstrap
+
 deb http://archive.raspbian.org/raspbian testing main contrib non-free rpi
 #deb-src http://archive.raspbian.org/raspbian testing main contrib non-free rpi
 
