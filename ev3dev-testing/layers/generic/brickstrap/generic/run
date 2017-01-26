@@ -54,3 +54,6 @@ systemctl disable smbd.service
 # we really don't want this running - it causes a long timeout on boot
 systemctl mask samba-ad-dc.service
 
+# flash-kernel is triggered by some of the package installs and results in
+# backup files being created in the boot partition.
+rm -r /boot/flash/*.bak
