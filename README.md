@@ -2,7 +2,6 @@ Ev3dev Docker Library
 =====================
 
 This repository is used to create the official ev3dev [docker] images.
-The images themselves are hosted at http://bintray.com/ev3dev/docker.
 
 [docker]: https://www.docker.com
 
@@ -13,7 +12,7 @@ Image Variants
 There are many images. Here's how to sort them out.
 
 * The image names follow the pattern `ev3dev-<dist>-<hardware>-<variant>`.
-    * `<dist>` is the Debian distribution it is based on, e.g. `jessie`, `squeeze`...
+    * `<dist>` is the Debian distribution it is based on, e.g. `jessie`, `stretch`...
     * `<hardware>` is the hardware platform, e.g. `ev3` for LEGO MINDSTORMS EV3,
       `bone` for BeagleBone, `rpi` for Raspberry Pi 0/1 and `rpi2` for Raspberry
       Pi 2/3.
@@ -33,14 +32,19 @@ Using the Images
 
         docker tag ev3dev/ev3dev-jessie-ev3-base ev3
 
-* And start a shell as the `robot` user in the image:
+* You can start a shell as the `robot` user in the image:
 
-        docker run -it ev3 su -l robot
+        docker run --rm -it ev3 su -l robot
 
-* Share what you learn. We are new to docker, so we are interested to hear how
-  you use it.
+* But, the main purpose of these Docker images is to create bootable SD card
+  images using the [brickstrap] tool.
+
+        brickstrap create-tar ev3dev/ev3dev-jessie-ev3-generic ev3dev.tar
+        brickstrap create-image ev3dev.tar ev3dev.img
 
 [install Docker Engine]: https://docs.docker.com/engine/installation/
+[brickstrap]: https://github.com/ev3dev/brickstrap
+
 
 Tips
 ----
