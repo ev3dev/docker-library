@@ -43,7 +43,7 @@ Each layer conforms to the following rules:
 The dockerfile that will be used to actually create an image that will be released
 should contain the following:
 
-    ARG BRICKSTRAP_IMAGE_NAME
+    ARG BRICKSTRAP_IMAGE_NAME=unknown-ev3dev-testing-image
     ENV BRICKSTRAP_IMAGE_NAME ${BRICKSTRAP_IMAGE_NAME}
     RUN echo "$BRICKSTRAP_IMAGE_NAME" > /etc/ev3dev-release
 
