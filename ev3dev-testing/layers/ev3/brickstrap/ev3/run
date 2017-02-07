@@ -2,6 +2,8 @@
 
 set -e
 
+mkdir -p /boot/flash
+
 export DEBIAN_FRONTEND=noninteractive
 export DEBCONF_NONINTERACTIVE_SEEN=true
 
