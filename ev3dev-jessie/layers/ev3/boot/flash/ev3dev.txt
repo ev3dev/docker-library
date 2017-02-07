@@ -1,4 +1,0 @@
-# ev3dev configuration file
-
-# Uncomment the following line if you are using OS X 10.11
-#cdc_only=true
