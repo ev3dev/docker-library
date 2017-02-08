@@ -12,11 +12,20 @@
 # uncomment to invert the display
 #dtparam=rotate=270
 
+
+#####################################
+# Dexter Industries BrickPi3 config #
+#####################################
+
+# uncomment both if you are using BrickPi3
+#dtoverlay=brickpi3
+
+
 ####################################
 # Dexter Industries BrickPi config #
 ####################################
 
-# uncomment both if you are using BrickPi
+# uncomment both if you are using BrickPi or BrickPi+`
 #dtoverlay=brickpi
 #init_uart_clock=32000000
 
