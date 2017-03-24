@@ -19,6 +19,3 @@ cp /usr/lib/linux-image-*[^.old]/bcm2710-rpi-3-b.dtb /boot/flash/
 # Fix file permissions on private ssh host keys. (git does not preserve
 # permissions other than the executable bit)
 chmod 600 /etc/ssh/ssh_host_*_key
-
-echo './etc/flash-kernel/db'        >> /brickstrap/_tar-exclude
-echo './etc/flash-kernel/machine'   >> /brickstrap/_tar-exclude

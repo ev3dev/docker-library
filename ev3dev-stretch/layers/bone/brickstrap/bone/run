@@ -33,5 +33,3 @@ echo "ad9a30c6cc33fd38947b8076db7707a3 $dest_dir/MLO" | md5sum --check -
 
 wget $uboot_url -O $dest_dir/u-boot.img
 echo "7560b15e06e9906c8b10c025c7fd9d4d $dest_dir/u-boot.img" | md5sum --check -
-
-echo './etc/flash-kernel/machine' >> /brickstrap/_tar-exclude
