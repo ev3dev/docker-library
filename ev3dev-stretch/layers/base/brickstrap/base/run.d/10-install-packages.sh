@@ -71,6 +71,7 @@ apt-get install --yes --allow-downgrades --no-install-recommends \
     screen \
     ssh \
     sudo \
+    systemd-sysv \
     tree \
     usbutils \
     vim \
