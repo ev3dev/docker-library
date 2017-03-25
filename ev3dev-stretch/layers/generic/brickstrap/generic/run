@@ -14,9 +14,6 @@ apt-get install --yes --no-install-recommends \
     guile-1.8 \
     lua5.2 \
     nfs-common \
-    nodejs \
-    nodejs-legacy \
-    npm \
     openrobertalab \
     python \
     python-evdev \
@@ -41,6 +38,14 @@ apt-get install --yes --no-install-recommends \
     samba \
     smbnetfs \
     sshfs
+
+# some packages are not available for armel
+if [[ "$(dpkg-architecture -q DEB_HOST_ARCH)" != "armel" ]]; then
+    apt-get install --yes --no-install-recommends \
+        nodejs \
+        nodejs-legacy \
+        npm
+fi
 
 # prevent openrobertalab from running
 systemctl mask openrobertalab.service
