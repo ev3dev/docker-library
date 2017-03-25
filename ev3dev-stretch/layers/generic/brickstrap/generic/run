@@ -35,7 +35,6 @@ apt-get install --yes --no-install-recommends \
     python3-setuptools \
     python3-smbus \
     ruby \
-    samba \
     smbnetfs \
     sshfs
 
@@ -53,11 +52,6 @@ systemctl mask openrobertalab.service
 # disable nfs from running by default since most won't use it
 systemctl disable nfs-common.service
 systemctl disable rpcbind.service
-
-# disable smbd from running by default. Want to leave nmbd on though.
-systemctl disable smbd.service
-# we really don't want this running - it causes a long timeout on boot
-systemctl mask samba-ad-dc.service
 
 # flash-kernel is triggered by some of the package installs and results in
 # backup files being created in the boot partition.
