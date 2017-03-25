@@ -12,7 +12,7 @@ apt-get install --yes --no-install-recommends \
     gawk \
     git \
     gjs \
-    lua5.2 \
+    lua5.3 \
     nfs-common \
     openrobertalab \
     python \
