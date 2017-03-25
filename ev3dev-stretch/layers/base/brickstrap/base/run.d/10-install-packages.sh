@@ -74,7 +74,13 @@ apt-get install --yes --allow-downgrades --no-install-recommends \
     usbutils \
     vim \
     wget \
-    wpasupplicant
+    wpasupplicant \
+    xfonts-100dpi \
+    xfonts-75dpi \
+    xfonts-base \
+    xfonts-efont-unicode \
+    xfonts-efont-unicode-ib \
+    xfonts-unifont
 
 # work around https://github.com/ev3dev/brickstrap/issues/63
 chmod u+s /bin/ping
