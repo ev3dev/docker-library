@@ -78,3 +78,7 @@ apt-get install --yes --allow-downgrades --no-install-recommends \
 
 # work around https://github.com/ev3dev/brickstrap/issues/63
 chmod u+s /bin/ping
+
+# make ssh and sftp discoverable
+cp /usr/share/doc/avahi-daemon/examples/ssh.service /etc/avahi/services/
+cp /usr/share/doc/avahi-daemon/examples/sftp-ssh.service /etc/avahi/services/
