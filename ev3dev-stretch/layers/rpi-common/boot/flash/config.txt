@@ -25,7 +25,7 @@
 # Dexter Industries BrickPi config #
 ####################################
 
-# uncomment both if you are using BrickPi or BrickPi+`
+# uncomment both if you are using BrickPi or BrickPi+
 #dtoverlay=brickpi
 #init_uart_clock=32000000
 
