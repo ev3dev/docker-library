@@ -39,7 +39,7 @@ apt-get install --yes --no-install-recommends \
     sshfs
 
 # some packages are not available for armel
-if [[ "$(dpkg-architecture -q DEB_HOST_ARCH)" != "armel" ]]; then
+if [[ "$(dpkg --print-architecture)" != "armel" ]]; then
     apt-get install --yes --no-install-recommends \
         nodejs \
         nodejs-legacy \
