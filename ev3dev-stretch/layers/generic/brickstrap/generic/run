@@ -11,6 +11,7 @@ apt-get install --yes --no-install-recommends \
     fortunes-min \
     gawk \
     git \
+    gjs \
     guile-1.8 \
     lua5.2 \
     nfs-common \
