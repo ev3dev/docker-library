@@ -2,4 +2,4 @@
 
 set -e
 
-update-rc.d firstboot start 99 S
+update-rc.d firstboot defaults
