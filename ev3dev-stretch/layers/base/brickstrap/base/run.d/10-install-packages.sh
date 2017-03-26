@@ -86,3 +86,6 @@ apt-get install --yes --allow-downgrades --no-install-recommends \
 
 # work around https://github.com/ev3dev/brickstrap/issues/63
 chmod u+s /bin/ping
+
+# work around https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=858799
+ln -s /usr/sbin/connmanctl /usr/bin/connmanctl
