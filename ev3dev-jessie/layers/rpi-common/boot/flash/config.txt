@@ -17,7 +17,7 @@
 # Dexter Industries BrickPi3 config #
 #####################################
 
-# uncomment both if you are using BrickPi3
+# uncomment if you are using BrickPi3
 #dtoverlay=brickpi3
 
 
