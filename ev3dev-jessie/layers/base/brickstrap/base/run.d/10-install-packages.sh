@@ -70,6 +70,7 @@ apt-get install --yes --force-yes --no-install-recommends \
     ssh \
     sudo \
     tree \
+    usb-modeswitch \
     usbutils \
     vim \
     wget \

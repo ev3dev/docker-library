@@ -73,6 +73,7 @@ apt-get install --yes --allow-downgrades --no-install-recommends \
     sudo \
     systemd-sysv \
     tree \
+    usb-modeswitch \
     usbutils \
     vim \
     wget \
