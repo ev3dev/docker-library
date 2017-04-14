@@ -20,6 +20,13 @@
 # uncomment if you are using BrickPi3
 #dtoverlay=brickpi3
 
+# uncomment only if you are stacking multiple BrickPi3s
+# replace 0123... with actual id number of each BrickPi3
+#dtparam=id1=0123456789ABCDEF0123456789ABCDEF
+#dtparam=id2=0123456789ABCDEF0123456789ABCDEF
+#dtparam=id3=0123456789ABCDEF0123456789ABCDEF
+#dtparam=id4=0123456789ABCDEF0123456789ABCDEF
+
 
 ####################################
 # Dexter Industries BrickPi config #
