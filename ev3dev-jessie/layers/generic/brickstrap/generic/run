@@ -10,6 +10,7 @@ apt-get install --yes --no-install-recommends \
     fortune \
     fortunes-min \
     gawk \
+    gir1.2-ev3devkit-0.4 \
     git \
     guile-1.8 \
     lua5.2 \
