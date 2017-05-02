@@ -67,7 +67,6 @@ apt-get install --yes --allow-downgrades --no-install-recommends \
     parted \
     procps \
     psmisc \
-    ros-robot \
     screen \
     ssh \
     sudo \

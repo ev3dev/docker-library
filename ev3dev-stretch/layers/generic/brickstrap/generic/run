@@ -34,6 +34,7 @@ apt-get install --yes --no-install-recommends \
     python3-serial \
     python3-setuptools \
     python3-smbus \
+    ros-robot \
     ruby \
     smbnetfs \
     sshfs
