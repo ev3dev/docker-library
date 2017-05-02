@@ -42,8 +42,7 @@ apt-get install --yes --no-install-recommends \
 if [[ "$(dpkg --print-architecture)" != "armel" ]]; then
     apt-get install --yes --no-install-recommends \
         nodejs \
-        nodejs-legacy \
-        npm
+        nodejs-legacy
 fi
 
 # prevent openrobertalab from running
