@@ -9,7 +9,6 @@ apt-get install --yes --no-install-recommends \
     bzip2 \
     fortune \
     fortunes-min \
-    gawk \
     git \
     gjs \
     lua5.3 \
