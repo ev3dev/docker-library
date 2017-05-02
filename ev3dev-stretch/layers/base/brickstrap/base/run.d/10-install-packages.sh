@@ -41,6 +41,7 @@ apt-get install --yes --allow-downgrades --no-install-recommends \
     firmware-ralink \
     firmware-realtek \
     flash-kernel \
+    fontconfig \
     i2c-tools \
     ifupdown \
     iproute \
