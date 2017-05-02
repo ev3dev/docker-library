@@ -11,15 +11,10 @@ locales         locales/default_environment_locale      select          en_US.UT
 EOF
 
 
-# TODO: It would be better to not have the base-files version number hard-coded
-# here. However, it is needed because if debian does a point release, we will
-# actually be downgrading the base-files package.
-
 apt-get update --yes
 apt-get install --yes --allow-downgrades --no-install-recommends \
     alsa-utils \
     avahi-daemon \
-    base-files=9.7ev3dev1 \
     beep \
     bluez \
     brickman \
@@ -32,6 +27,7 @@ apt-get install --yes --allow-downgrades --no-install-recommends \
     espeak \
     ethtool \
     ev3dev-adduser-config \
+    ev3dev-base-files \
     ev3dev-bluez-config \
     ev3dev-connman-config \
     ev3dev-rules \
