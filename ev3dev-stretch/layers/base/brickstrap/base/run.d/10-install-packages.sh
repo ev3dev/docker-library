@@ -21,6 +21,7 @@ apt-get install --yes --allow-downgrades --no-install-recommends \
     bsdmainutils \
     ca-certificates \
     connman \
+    console-runner \
     console-setup \
     conspy \
     dosfstools \
