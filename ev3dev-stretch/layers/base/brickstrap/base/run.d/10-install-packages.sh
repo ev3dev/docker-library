@@ -54,6 +54,7 @@ apt-get install --yes --allow-downgrades --no-install-recommends \
     libgrx-3.0-plugin-linuxfb \
     libnss-mdns \
     libnss-myhostname \
+    libnss-resolve \
     libpam-systemd \
     locales \
     nano \
