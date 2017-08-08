@@ -3,7 +3,9 @@ Description=Console runner for robot
 
 [Service]
 Type=simple
+ExecStartPre=+/bin/chown robot /dev/%i
 ExecStart=/usr/bin/conrun-server
+ExecStopPost=+/bin/chown root /dev/%i
 User=robot
 StandardInput=tty-fail
 StandardOutput=tty
