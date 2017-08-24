@@ -18,4 +18,4 @@
 # ----------------
 
 # kernel boot arguments
-cmdline=splash console=tty1
+cmdline=splash console=tty1 consoleblank=0
