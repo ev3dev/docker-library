@@ -18,10 +18,10 @@ apt-get install --yes --allow-downgrades --no-install-recommends \
     beep \
     bluez \
     brickman \
+    brickrun \
     bsdmainutils \
     ca-certificates \
     connman \
-    console-runner \
     console-setup \
     conspy \
     dosfstools \
