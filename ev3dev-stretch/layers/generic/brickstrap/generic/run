@@ -37,7 +37,8 @@ apt-get install --yes --no-install-recommends \
     python3-smbus \
     ruby \
     smbnetfs \
-    sshfs
+    sshfs \
+    telnet
 
 # some packages are not available for armel
 if [[ "$(dpkg --print-architecture)" != "armel" ]]; then
