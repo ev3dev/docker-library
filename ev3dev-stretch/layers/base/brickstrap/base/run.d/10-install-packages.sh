@@ -17,6 +17,7 @@ apt-get install --yes --allow-downgrades --no-install-recommends \
     avahi-daemon \
     beep \
     bluez \
+    brickd \
     brickman \
     brickrun \
     bsdmainutils \
