@@ -9,8 +9,7 @@ export DEBCONF_NONINTERACTIVE_SEEN=true
 mkdir -p /boot/flash
 
 apt-get install --yes --no-install-recommends \
-    linux-image-ev3dev-rpi2 \
-    firmware-rpi
+    linux-image-ev3dev-rpi2
 
 # Copy device tree for RPi 3 - only RPi 2 is installed by flash-kernel
 # and this image needs to support both models.
