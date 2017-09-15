@@ -30,3 +30,7 @@ systemctl enable zram_swap.service
 # Fix file permissions on private ssh host keys. (git does not preserve
 # permissions other than the executable bit)
 chmod 600 /etc/ssh/ssh_host_*_key
+
+# set the default font (fonts-tom-thumb is installed as dependency of ev3-systemd)
+echo -e -n "\nFONT='Lat15-TomThumb4x6.psf.gz'" >> /etc/default/console-setup
+setupcon --save-only
