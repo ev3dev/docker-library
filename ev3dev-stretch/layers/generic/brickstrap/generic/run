@@ -7,6 +7,7 @@ export DEBCONF_NONINTERACTIVE_SEEN=true
 
 apt-get install --yes --no-install-recommends \
     bzip2 \
+    ev3dev-media \
     fortune \
     fortunes-min \
     git \
