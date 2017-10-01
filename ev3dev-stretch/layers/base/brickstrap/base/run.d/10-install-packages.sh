@@ -38,6 +38,7 @@ apt-get install --yes --allow-downgrades --no-install-recommends \
     fake-hwclock \
     fbcat \
     fbset \
+    file \
     firmware-atheros \
     firmware-linux-free \
     firmware-ralink \
