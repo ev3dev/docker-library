@@ -15,6 +15,7 @@ apt-get install --yes --no-install-recommends \
     lua5.3 \
     micropython \
     micropython-lib \
+    mpy-cross \
     nfs-common \
     openrobertalab \
     python \
