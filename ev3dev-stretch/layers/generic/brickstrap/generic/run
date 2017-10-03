@@ -15,6 +15,8 @@ apt-get install --yes --no-install-recommends \
     lua5.3 \
     micropython \
     micropython-lib \
+    mosquitto \
+    mosquitto-clients \
     mpy-cross \
     nfs-common \
     openrobertalab \
@@ -55,6 +57,9 @@ systemctl mask openrobertalab.service
 # disable nfs from running by default since most won't use it
 systemctl disable nfs-common.service
 systemctl disable rpcbind.service
+
+# Most people won't use MQTT, so off by default
+systemctl disable mosquitto.service
 
 # flash-kernel is triggered by some of the package installs and results in
 # backup files being created in the boot partition.
