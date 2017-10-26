@@ -9,6 +9,7 @@ apt-get install --yes --no-install-recommends \
     bash-completion \
     bluez-firmware \
     firmware-brcm80211 \
+    firmware-brickpi3 \
     libraspberrypi-bin \
     libraspberrypi0 \
     raspberrypi-bootloader \
