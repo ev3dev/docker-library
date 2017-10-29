@@ -18,18 +18,6 @@ apt-get install --yes --no-install-recommends \
 # Copy all of the overlays to the FAT partition
 cp /usr/lib/linux-image-*[^.old]/overlays/*.dtbo /boot/flash/overlays/
 
-# Set the FRAMEBUFFER environment variable.
-
-# PiStorms and other add-on displays are generally at /dev/fb1
-
-# This one is so that users will inherit this variable.
-echo "FRAMEBUFFER=/dev/fb1" >> /etc/environment
-
-# And this one is for systemd since it doesn't look at /etc/environment
-# This would be better in /etc/systemd/system.conf.d/, but that was not introduced
-# until systemd 218 and jessie uses 215.
-sed -i 's,#\(DefaultEnvironment=\),\1FRAMEBUFFER=/dev/fb1,' /etc/systemd/system.conf
-
 # make sure serial-getty@.service does not try to use the serial port
 # so that it can be used by BrickPi
 systemctl mask serial-getty@ttyAMA0.service
