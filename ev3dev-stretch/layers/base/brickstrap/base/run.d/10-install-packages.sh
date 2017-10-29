@@ -12,7 +12,7 @@ EOF
 
 
 apt-get update --yes
-apt-get install --yes --allow-downgrades --no-install-recommends \
+apt-get install --yes --no-install-recommends \
     alsa-utils \
     avahi-daemon \
     beep \
