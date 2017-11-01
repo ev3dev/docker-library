@@ -22,14 +22,14 @@ chmod 600 /etc/ssh/ssh_host_*_key
 #    wget https://rcn-ee.com/repos/bootloader/latest/bootloader-ng -q -O - | grep "ABI2:am335x_evm:"
 #
 
-mlo_url=https://rcn-ee.com/repos/bootloader/am335x_evm/MLO-am335x_evm-v2016.03-r8
-uboot_url=https://rcn-ee.com/repos/bootloader/am335x_evm/u-boot-am335x_evm-v2016.03-r8.img
+mlo_url=https://rcn-ee.com/repos/bootloader/am335x_evm/MLO-am335x_evm-v2017.09-r7
+uboot_url=https://rcn-ee.com/repos/bootloader/am335x_evm/u-boot-am335x_evm-v2017.09-r7.img
 dest_dir=/brickstrap/_beagle-boot
 
 mkdir -p $dest_dir
 
 wget $mlo_url -O $dest_dir/MLO
-echo "ad9a30c6cc33fd38947b8076db7707a3 $dest_dir/MLO" | md5sum --check -
+echo "d359f47f8803dc82f68969d381be96b8 $dest_dir/MLO" | md5sum --check -
 
 wget $uboot_url -O $dest_dir/u-boot.img
-echo "7560b15e06e9906c8b10c025c7fd9d4d $dest_dir/u-boot.img" | md5sum --check -
+echo "5aabd32abe3f2692395f17ffccfa53cb $dest_dir/u-boot.img" | md5sum --check -
