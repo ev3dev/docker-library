@@ -25,6 +25,7 @@ apt-get install --yes --no-install-recommends \
     connman \
     console-setup \
     conspy \
+    curl \
     dosfstools \
     espeak \
     ethtool \
