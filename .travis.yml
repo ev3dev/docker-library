@@ -1,10 +1,6 @@
 language: bash
 env:
   matrix:
-  - DIST=jessie HW_PLATFORM=bone
-  - DIST=jessie HW_PLATFORM=ev3
-  - DIST=jessie HW_PLATFORM=rpi
-  - DIST=jessie HW_PLATFORM=rpi2
   - DIST=stretch HW_PLATFORM=bone
   - DIST=stretch HW_PLATFORM=ev3
   - DIST=stretch HW_PLATFORM=rpi
