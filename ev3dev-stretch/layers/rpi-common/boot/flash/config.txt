@@ -17,6 +17,9 @@
 # Dexter Industries BrickPi3 config #
 #####################################
 
+# ATTENTION: If you have BrickPi or BrickPi+, ignore this section. See BrickPi
+#            section below instead.
+
 # uncomment if you are using BrickPi3
 #dtoverlay=brickpi3
 
@@ -31,6 +34,9 @@
 ####################################
 # Dexter Industries BrickPi config #
 ####################################
+
+# ATTENTION: If you have BrickPi3, ignore this section. See BrickPi3 section
+#            above instead.
 
 # uncomment both if you are using BrickPi or BrickPi+
 #dtoverlay=brickpi
@@ -60,10 +66,6 @@
 # uncomment to disable BrickPi LEDs on boot.
 #dtparam=brickpi_led1_trigger=none,brickpi_led2_trigger=none
 
-# uncomment if you have a Model B Rev 1 board that uses gpio 21 instead of
-# gpio 27
-#dtparam=brickpi_led1_gpio=21
-
 # uncomment if you have Adafruit 2.8" resistive touchscreen stacked on top
 # and also add `fbcon=map:1 fbcon=font:VGA8x8` to cmdline.txt
 #dtoverlay=pitft28-resistive,rotate=90
@@ -74,6 +76,11 @@
 
 # uncomment if you have a mindsensors.com RTC sensor connected to input port 5
 #dtoverlay=i2c-rtc,ds1307
+
+# uncomment if you have a Model B Rev 1 board that uses gpio 21 instead of
+# gpio 27
+#dtparam=brickpi_led1_gpio=21
+
 
 ################################
 # Standard Raspberry Pi config #
