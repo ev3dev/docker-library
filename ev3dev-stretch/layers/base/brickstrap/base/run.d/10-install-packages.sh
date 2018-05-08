@@ -44,6 +44,7 @@ apt-get install --yes --no-install-recommends \
     firmware-linux-free \
     firmware-ralink \
     firmware-realtek \
+    firmware-zd1211 \
     flash-kernel \
     fontconfig \
     i2c-tools \
