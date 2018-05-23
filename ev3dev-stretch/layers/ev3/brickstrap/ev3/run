@@ -34,3 +34,21 @@ chmod 600 /etc/ssh/ssh_host_*_key
 # set the default font (fonts-tom-thumb is installed as dependency of ev3-systemd)
 echo -e -n "\nFONT='Lat15-TomThumb4x6.psf.gz'" >> /etc/default/console-setup
 setupcon --save-only
+
+# get u-boot
+
+u_boot_version="v2018.07-rc0-ev3dev1"
+u_boot_url="https://github.com/ev3dev/u-boot/releases/download"
+u_boot_files="boot.scr u-boot.bin uEnv.txt"
+
+for f in $u_boot_files; do
+    wget $u_boot_url/$u_boot_version/$f
+done
+
+echo "21c8857c8ecf39dcad551b0de597101a  boot.scr
+085ac2f28552a7d2b268bcc97406f9aa  u-boot.bin
+dfb04606bf8bd1d1662075bb05bd7a74  uEnv.txt" | md5sum --check -
+
+for f in $u_boot_files; do
+    mv $f /boot/flash/
+done
