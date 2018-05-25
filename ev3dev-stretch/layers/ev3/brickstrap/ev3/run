@@ -37,7 +37,7 @@ setupcon --save-only
 
 # get u-boot
 
-u_boot_version="v2018.07-rc0-ev3dev1"
+u_boot_version="v2018.07-rc0-ev3dev2"
 u_boot_url="https://github.com/ev3dev/u-boot/releases/download"
 u_boot_files="boot.scr u-boot.bin uEnv.txt"
 
@@ -45,9 +45,9 @@ for f in $u_boot_files; do
     wget $u_boot_url/$u_boot_version/$f
 done
 
-echo "21c8857c8ecf39dcad551b0de597101a  boot.scr
-085ac2f28552a7d2b268bcc97406f9aa  u-boot.bin
-dfb04606bf8bd1d1662075bb05bd7a74  uEnv.txt" | md5sum --check -
+echo "90e104632df87ff1ee64fc7e1e155c23  boot.scr
+a38be33090e17f142e45bf39cf50c8b6  u-boot.bin
+c5999cd67d643e563ec2244cb313a9b5  uEnv.txt" | md5sum --check -
 
 for f in $u_boot_files; do
     mv $f /boot/flash/
