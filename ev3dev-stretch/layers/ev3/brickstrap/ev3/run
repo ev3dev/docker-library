@@ -52,3 +52,10 @@ c5999cd67d643e563ec2244cb313a9b5  uEnv.txt" | md5sum --check -
 for f in $u_boot_files; do
     mv $f /boot/flash/
 done
+
+# add entry to fstab to work around systemd complaint about not enough free
+# space in /run/system.
+
+cat >> /etc/fstab << EOF
+tmpfs           /run            tmpfs  nosuid,noexec,size=20M,nr_inodes=4096 0    0
+EOF
