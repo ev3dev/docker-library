@@ -43,7 +43,9 @@ apt-get install --yes --no-install-recommends \
     ruby \
     smbnetfs \
     sshfs \
-    telnet
+    telnet \
+    unzip \
+    zip
 
 # some packages are not available for armel
 if [[ "$(dpkg --print-architecture)" != "armel" ]]; then
