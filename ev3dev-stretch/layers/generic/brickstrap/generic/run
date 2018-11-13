@@ -55,6 +55,11 @@ if [[ "$(dpkg --print-architecture)" != "armel" ]]; then
         nodejs-legacy
 fi
 
+if dpkg -s linux-image-ev3dev-ev3 >/dev/null 2>&1; then
+    apt-get install --yes --no-install-recommends \
+        jri-11-ev3
+fi
+
 # prevent openrobertalab from running
 systemctl mask openrobertalab.service
 
