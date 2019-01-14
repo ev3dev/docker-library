@@ -1,0 +1,75 @@
+#!/bin/bash
+
+set -e
+
+export DEBIAN_FRONTEND=noninteractive
+export DEBCONF_NONINTERACTIVE_SEEN=true
+
+apt-get install --yes --no-install-recommends \
+    bzip2 \
+    ev3dev-media \
+    fortune \
+    fortunes-min \
+    gir1.2-ev3devkit-0.5 \
+    git \
+    gjs \
+    lua5.3 \
+    micropython \
+    micropython-lib \
+    mosquitto \
+    mosquitto-clients \
+    mpy-cross \
+    nfs-common \
+    openrobertalab \
+    python \
+    python-evdev \
+    python-gobject \
+    python-pyudev \
+    python-setuptools \
+    python-smbus \
+    python3 \
+    python3-bluez \
+    python3-ev3dev \
+    python3-ev3dev2 \
+    python3-evdev \
+    python3-gattlib \
+    python3-gi \
+    python3-libpixyusb \
+    python3-ptvsd \
+    python3-pyudev \
+    python3-rpyc \
+    python3-serial \
+    python3-setuptools \
+    python3-smbus \
+    ruby \
+    smbnetfs \
+    sshfs \
+    telnet \
+    unzip \
+    zip
+
+# some packages are not available for armel
+if [[ "$(dpkg --print-architecture)" != "armel" ]]; then
+    apt-get install --yes --no-install-recommends \
+        nodejs \
+        nodejs-legacy
+fi
+
+if dpkg -s linux-image-ev3dev-ev3 >/dev/null 2>&1; then
+    apt-get install --yes --no-install-recommends \
+        jri-11-ev3
+fi
+
+# prevent openrobertalab from running
+systemctl mask openrobertalab.service
+
+# disable nfs from running by default since most won't use it
+systemctl disable nfs-common.service
+systemctl disable rpcbind.service
+
+# Most people won't use MQTT, so off by default
+systemctl disable mosquitto.service
+
+# flash-kernel is triggered by some of the package installs and results in
+# backup files being created in the boot partition.
+rm -f /boot/flash/*.bak

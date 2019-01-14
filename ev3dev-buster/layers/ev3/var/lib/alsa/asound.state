@@ -1,0 +1,24 @@
+state.legoev3 {
+	control.1 {
+		iface MIXER
+		name 'Beep Playback Volume'
+		value 51
+		comment {
+			access 'read write'
+			type INTEGER
+			count 1
+			range '0 - 256'
+		}
+	}
+	control.2 {
+		iface MIXER
+		name 'PCM Playback Volume'
+		value 256
+		comment {
+			access 'read write'
+			type INTEGER
+			count 1
+			range '0 - 256'
+		}
+	}
+}

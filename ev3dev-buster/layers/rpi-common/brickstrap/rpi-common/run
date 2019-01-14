@@ -1,0 +1,23 @@
+#!/bin/bash
+
+set -e
+
+export DEBIAN_FRONTEND=noninteractive
+export DEBCONF_NONINTERACTIVE_SEEN=true
+
+apt-get install --yes --no-install-recommends \
+    bash-completion \
+    bluez-firmware \
+    firmware-brcm80211 \
+    firmware-brickpi3 \
+    libraspberrypi-bin \
+    libraspberrypi0 \
+    raspberrypi-bootloader \
+    rpi-systemd
+
+# Copy all of the overlays to the FAT partition
+cp /usr/lib/linux-image-*[^.old]/overlays/*.dtbo /boot/flash/overlays/
+
+# make sure serial-getty@.service does not try to use the serial port
+# so that it can be used by BrickPi
+systemctl mask serial-getty@ttyAMA0.service

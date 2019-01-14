@@ -1,0 +1,21 @@
+# Select your cape from the following
+# -----------------------------------
+
+# Uncomment only one "cape=...* line. The "...-lms2012" options use alternate
+# drivers for motors and sensors used by `lms2012-compat` instead of the usual
+# ev3dev drivers for motors and sensors.
+
+# FatcatLab EVB
+#cape=evb
+#cape=evb-lms2012
+
+# QuestCape
+#cape=quest
+#cape=quest-lms2012
+
+
+# Advanced options
+# ----------------
+
+# kernel boot arguments
+cmdline=splash console=tty1 consoleblank=0

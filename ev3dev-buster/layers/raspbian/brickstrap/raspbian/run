@@ -1,0 +1,20 @@
+#!/bin/bash
+
+set -e
+
+export DEBIAN_FRONTEND=noninteractive
+export DEBCONF_NONINTERACTIVE_SEEN=true
+
+# These files are incorrectly marked as required in the raspbian repository.
+# see https://bugs.launchpad.net/raspbian/+bug/1541204
+apt-get purge --yes \
+    gcc-4.9-base \
+    gcc-5-base \
+    gcc-6-base \
+    gcc-7-base \
+    liblocale-gettext-perl \
+    libtext-charwidth-perl \
+    libtext-iconv-perl \
+    libtext-wrapi18n-perl \
+    lsb-base \
+    xz-utils

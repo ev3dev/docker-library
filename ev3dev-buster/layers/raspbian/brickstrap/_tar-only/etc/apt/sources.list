@@ -1,0 +1,5 @@
+deb http://mirrordirector.raspbian.org/raspbian buster main contrib non-free rpi
+#deb-src http://mirrordirector.raspbian.org/raspbian buster main contrib non-free rpi
+
+deb http://archive.ev3dev.org/raspbian buster main
+#deb-src http://archive.ev3dev.org/raspbian buster main
