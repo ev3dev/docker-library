@@ -16,6 +16,7 @@ apt-get install --yes --no-install-recommends \
     lua5.3 \
     micropython \
     micropython-lib \
+    micropython-ev3dev2 \
     mosquitto \
     mosquitto-clients \
     mpy-cross \
