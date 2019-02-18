@@ -41,7 +41,6 @@ apt-get install --yes --no-install-recommends \
     python3-serial \
     python3-setuptools \
     python3-smbus \
-    ruby \
     smbnetfs \
     sshfs \
     telnet \
