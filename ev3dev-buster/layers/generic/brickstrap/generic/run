@@ -21,7 +21,6 @@ apt-get install --yes --no-install-recommends \
     mosquitto-clients \
     mpy-cross \
     nfs-common \
-    openrobertalab \
     python \
     python-evdev \
     python-gobject \
@@ -58,9 +57,6 @@ if dpkg -s linux-image-ev3dev-ev3 >/dev/null 2>&1; then
     apt-get install --yes --no-install-recommends \
         jri-11-ev3
 fi
-
-# prevent openrobertalab from running
-systemctl mask openrobertalab.service
 
 # disable nfs from running by default since most won't use it
 systemctl disable nfs-common.service
