@@ -16,5 +16,4 @@ apt-get purge --yes \
     libtext-charwidth-perl \
     libtext-iconv-perl \
     libtext-wrapi18n-perl \
-    lsb-base \
     xz-utils
