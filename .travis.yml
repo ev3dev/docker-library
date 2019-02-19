@@ -5,7 +5,6 @@ env:
   - DIST=stretch HW_PLATFORM=ev3
   - DIST=stretch HW_PLATFORM=rpi
   - DIST=stretch HW_PLATFORM=rpi2
-  - DIST=buster HW_PLATFORM=bone
   - DIST=buster HW_PLATFORM=ev3
   - DIST=buster HW_PLATFORM=rpi
   - DIST=buster HW_PLATFORM=rpi2
