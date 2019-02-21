@@ -35,7 +35,6 @@ apt-get install --yes --no-install-recommends \
     python3-libpixyusb \
     python3-ptvsd \
     python3-pyudev \
-    python3-rpyc \
     python3-serial \
     python3-setuptools \
     python3-smbus \
