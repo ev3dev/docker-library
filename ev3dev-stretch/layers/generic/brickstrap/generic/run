@@ -10,6 +10,7 @@ apt-get install --yes --no-install-recommends \
     ev3dev-media \
     fortune \
     fortunes-min \
+    gdbserver \
     gir1.2-ev3devkit-0.5 \
     git \
     gjs \
