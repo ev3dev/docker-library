@@ -10,7 +10,7 @@ export DEBCONF_NONINTERACTIVE_SEEN=true
 apt-get install --yes --no-install-recommends \
     ev3-config \
     ev3-systemd \
-    firmware-ev3 \
+    firmware-ti-connectivity \
     linux-image-ev3dev-ev3 \
     lms2012-compat \
     u-boot-tools \
