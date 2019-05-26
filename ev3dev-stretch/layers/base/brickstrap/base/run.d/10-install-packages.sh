@@ -55,7 +55,6 @@ apt-get install --yes --no-install-recommends \
     isc-dhcp-client \
     kmod \
     less \
-    libgrx-3.0-2-plugin-linuxfb \
     libnss-mdns \
     libnss-myhostname \
     libnss-resolve \
