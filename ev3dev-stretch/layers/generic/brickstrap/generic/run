@@ -30,6 +30,7 @@ apt-get install --yes --no-install-recommends \
     python-setuptools \
     python-smbus \
     python3 \
+    python3-agt \
     python3-bluez \
     python3-ev3dev \
     python3-ev3dev2 \
