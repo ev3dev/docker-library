@@ -30,7 +30,6 @@ apt-get install --yes --no-install-recommends \
     python-setuptools \
     python-smbus \
     python3 \
-    python3-agt \
     python3-bluez \
     python3-ev3dev \
     python3-ev3dev2 \
@@ -61,6 +60,12 @@ fi
 if dpkg -s linux-image-ev3dev-ev3 >/dev/null 2>&1; then
     apt-get install --yes --no-install-recommends \
         jri-11-ev3
+fi
+
+# raspbian doesn't have stretch-backports so we are missing python3-protobuf
+# >= 3.2 depedency
+if ! grep -q raspbian /etc/apt/sources.list; then
+    apt-get install --yes --no-install-recommends python3-agt
 fi
 
 # prevent openrobertalab from running
