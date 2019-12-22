@@ -56,6 +56,10 @@ if dpkg -s linux-image-ev3dev-ev3 >/dev/null 2>&1; then
         jri-11-ev3
 fi
 
+# Mask systemd-rfkill - ConnMan takes care of this instead
+sudo systemctl mask systemd-rfkill.service
+sudo systemctl mask systemd-rfkill.socket
+
 # disable nfs from running by default since most won't use it
 systemctl disable nfs-common.service
 systemctl disable rpcbind.service
