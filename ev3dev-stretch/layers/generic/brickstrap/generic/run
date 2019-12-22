@@ -68,6 +68,10 @@ if ! grep -q raspbian /etc/apt/sources.list; then
     apt-get install --yes --no-install-recommends python3-agt
 fi
 
+# Mask systemd-rfkill - ConnMan takes care of this instead
+sudo systemctl mask systemd-rfkill.service
+sudo systemctl mask systemd-rfkill.socket
+
 # prevent openrobertalab from running
 systemctl mask openrobertalab.service
 
