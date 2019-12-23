@@ -13,7 +13,10 @@ apt-get install --yes --no-install-recommends \
 
 # Copy device tree for RPi 3 - only RPi 2 is installed by flash-kernel
 # and this image needs to support both models.
+cp /usr/lib/linux-image-*[^.old]/bcm2710-rpi-2-b.dtb /boot/flash/
 cp /usr/lib/linux-image-*[^.old]/bcm2710-rpi-3-b.dtb /boot/flash/
+cp /usr/lib/linux-image-*[^.old]/bcm2710-rpi-3-b-plus.dtb /boot/flash/
+cp /usr/lib/linux-image-*[^.old]/bcm2711-rpi-4-b.dtb /boot/flash/
 
 # Fix file permissions on private ssh host keys. (git does not preserve
 # permissions other than the executable bit)
