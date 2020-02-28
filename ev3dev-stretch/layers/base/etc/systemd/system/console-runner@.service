@@ -10,7 +10,7 @@ StandardOutput=tty
 StandardError=journal
 TTYPath=/dev/%i
 PAMName=console-runner
-Nice=-20
+Nice=-10
 
 [Install]
 WantedBy=multi-user.target
