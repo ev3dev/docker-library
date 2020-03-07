@@ -57,9 +57,12 @@ if [[ "$(dpkg --print-architecture)" != "armel" ]]; then
         nodejs-legacy
 fi
 
+# some packages are for EV3 only
 if dpkg -s linux-image-ev3dev-ev3 >/dev/null 2>&1; then
     apt-get install --yes --no-install-recommends \
-        jri-11-ev3
+        jri-11-ev3 \
+        pybricks-micropython \
+        pybricks-micropython-lib
 fi
 
 # raspbian doesn't have stretch-backports so we are missing python3-protobuf
