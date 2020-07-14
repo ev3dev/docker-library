@@ -1,0 +1,16 @@
+[Unit]
+Description=Console runner for robot
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/conrun-server
+User=robot
+StandardInput=tty-fail
+StandardOutput=tty
+StandardError=journal
+TTYPath=/dev/%i
+PAMName=console-runner
+Nice=-10
+
+[Install]
+WantedBy=multi-user.target

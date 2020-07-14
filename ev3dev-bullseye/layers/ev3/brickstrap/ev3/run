@@ -1,0 +1,60 @@
+#!/bin/bash
+
+set -e
+
+mkdir -p /boot/flash
+
+export DEBIAN_FRONTEND=noninteractive
+export DEBCONF_NONINTERACTIVE_SEEN=true
+
+apt-get install --yes --no-install-recommends \
+    ev3-config \
+    ev3-systemd \
+    firmware-ti-connectivity \
+    linux-image-ev3dev-ev3 \
+    u-boot-tools \
+    zram-init
+
+# make sure serial-getty@.service does not try to use the serial ports because
+# we use them for other things
+systemctl mask serial-getty@ttyS0.service
+systemctl mask serial-getty@ttyS1.service
+systemctl mask serial-getty@ttyS2.service
+systemctl mask serial-getty@ttySU0.service
+systemctl mask serial-getty@ttySU1.service
+
+# enable zram swap file
+systemctl enable zram_swap.service
+
+# Fix file permissions on private ssh host keys. (git does not preserve
+# permissions other than the executable bit)
+chmod 600 /etc/ssh/ssh_host_*_key
+
+# set the default font (fonts-tom-thumb is installed as dependency of ev3-systemd)
+echo -e -n "\nFONT='Lat15-TomThumb4x6.psf.gz'" >> /etc/default/console-setup
+setupcon --save-only
+
+# get u-boot
+
+u_boot_version="v2018.07-rc0-ev3dev2"
+u_boot_url="https://github.com/ev3dev/u-boot/releases/download"
+u_boot_files="boot.scr u-boot.bin uEnv.txt"
+
+for f in $u_boot_files; do
+    wget $u_boot_url/$u_boot_version/$f
+done
+
+echo "90e104632df87ff1ee64fc7e1e155c23  boot.scr
+a38be33090e17f142e45bf39cf50c8b6  u-boot.bin
+c5999cd67d643e563ec2244cb313a9b5  uEnv.txt" | md5sum --check -
+
+for f in $u_boot_files; do
+    mv $f /boot/flash/
+done
+
+# add entry to fstab to work around systemd complaint about not enough free
+# space in /run/system.
+
+cat >> /etc/fstab << EOF
+tmpfs           /run            tmpfs  nosuid,noexec,size=20M,nr_inodes=4096 0    0
+EOF

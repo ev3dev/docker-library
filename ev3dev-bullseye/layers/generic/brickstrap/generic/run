@@ -1,0 +1,36 @@
+#!/bin/bash
+
+set -e
+
+export DEBIAN_FRONTEND=noninteractive
+export DEBCONF_NONINTERACTIVE_SEEN=true
+
+apt-get install --yes --no-install-recommends \
+    bzip2 \
+    ev3dev-media \
+    fortune \
+    fortunes-min \
+    gdbserver \
+    git \
+    python3 \
+    python3-bluez \
+    python3-ev3dev2 \
+    python3-evdev \
+    python3-gi \
+    python3-pyudev \
+    python3-serial \
+    python3-setuptools \
+    python3-smbus \
+    smbnetfs \
+    sshfs \
+    telnet \
+    unzip \
+    zip
+
+# Mask systemd-rfkill - ConnMan takes care of this instead
+sudo systemctl mask systemd-rfkill.service
+sudo systemctl mask systemd-rfkill.socket
+
+# flash-kernel is triggered by some of the package installs and results in
+# backup files being created in the boot partition.
+rm -f /boot/flash/*.bak
