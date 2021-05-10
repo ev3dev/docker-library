@@ -17,6 +17,7 @@ apt-get install --yes --no-install-recommends \
     python3-ev3dev2 \
     python3-evdev \
     python3-gi \
+    python3-paho-mqtt \
     python3-pyudev \
     python3-serial \
     python3-setuptools \
