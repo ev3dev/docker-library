@@ -1,5 +1,5 @@
-deb http://archive.debian.org/debian stretch main contrib non-free
+deb [trusted=yes] http://archive.debian.org/debian stretch main contrib non-free
 #deb-src http://archive.debian.org/debian stretch main contrib non-free
 
-deb http://archive.ev3dev.org/debian stretch main
+deb [trusted=yes] http://archive.ev3dev.org/debian stretch main
 #deb-src http://archive.ev3dev.org/debian stretch main
